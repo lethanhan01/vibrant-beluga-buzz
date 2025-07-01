@@ -7,6 +7,7 @@ const AvatarEditor = () => {
   const [hairColor, setHairColor] = useState('black');
   const [eyeColor, setEyeColor] = useState('brown');
   const [skinTone, setSkinTone] = useState('fair');
+  const [clothing, setClothing] = useState('casual');
 
   return (
     <div className="flex flex-col justify-center">
@@ -50,8 +51,20 @@ const AvatarEditor = () => {
             <option value="dark">Dark</option>
           </select>
         </label>
+        <label className="block text-lg mr-4">
+          Clothing:
+          <select
+            value={clothing}
+            onChange={(e) => setClothing(e.target.value)}
+            className="bg-gray-200 border-2 border-gray-300 rounded py-1 px-3"
+          >
+            <option value="casual">Casual</option>
+            <option value="formal">Formal</option>
+            <option value="athletic">Athletic</option>
+          </select>
+        </label>
       </div>
-      <Avatar hairColor={hairColor} eyeColor={eyeColor} skinTone={skinTone} />
+      <Avatar hairColor={hairColor} eyeColor={eyeColor} skinTone={skinTone} clothing={clothing} />
     </div>
   );
 };
